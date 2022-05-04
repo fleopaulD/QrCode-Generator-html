@@ -12,6 +12,7 @@
         <label>Entrez un texte ou un lien.</label>
         <input type="text" class="qr-text" onchange="generator()">
         <div class="qr-code"></div>
+        <div class="note"></div>
     </section>
     
     <script src="qrcode.min.js"></script>
@@ -22,6 +23,13 @@
             qr_code.style.display = "flex";
             qr_code.innerHTML = "";
             new QRCode(qr_code, qr_text.value);
+            
+            const note = document.createElement("p");
+            note.innerText = "Testez le QR Code avant de le mettre dans le journal ;)";
+            const div_note = document.querySelector(".note");
+            if (!div_note.hasChildNodes()) {
+                div_note.appendChild(note);
+            }
         }
     </script>
 </body>
